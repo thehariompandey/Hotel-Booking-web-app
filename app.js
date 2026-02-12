@@ -21,8 +21,9 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/User.js");
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/Delta";
-const dburl = process.env.ATLASDB_URL;
-
+// const dburl = process.env.ATLASDB_URL;
+// Yahan "hariom" tumhara username aur "password123" tumhara naya password hona chahiye
+const dburl = "mongodb+srv://hariompandey0349:Hari9868@cluster0.uvqme6o.mongodb.net/wanderlust?appName=Cluster0";
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 
@@ -138,12 +139,26 @@ app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found !"));
 });
 
-app.use((err, req, res, next) => {
-  let { statusCode = 500, message = "something went wrong!" } = err;
-  res.status(statusCode).render("listings/error.ejs", { message });
-  // res.status(statusCode).send(message);
-});
+// app.use((err, req, res, next) => {
+//   let { statusCode = 500, message = "something went wrong!" } = err;
+//   res.status(statusCode).render("listings/error.ejs", { message });
+//   // res.status(statusCode).send(message);
+// });
 
 app.listen(8080, () => {
   console.log("server is listening to port 8080 ");
+});
+
+
+
+// app.js ke end mein
+
+app.use((err, req, res, next) => {
+  // Ye 2 line add karo taaki pata chale galti kahan hai
+  console.log("---------------- ERROR DETAILS ----------------");
+  console.log(err); 
+  console.log("-----------------------------------------------");
+
+  let { statusCode = 500, message = "Something went wrong!" } = err;
+  res.status(statusCode).render("listings/error.ejs", { message });
 });
