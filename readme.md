@@ -19,7 +19,7 @@ A dynamic travel listing and exploration web application built using **Node.js**
 ## 📸 Demo
 
 > Hosted on **Render**  
-[🔗 Live Website](https://ecommerce-traveling-site.onrender.com/listings)
+[🔗 Live Website](https://hotel-booking-web-app-pp29.onrender.com)
 
 ---
 
